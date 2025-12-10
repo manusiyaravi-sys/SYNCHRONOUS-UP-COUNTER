@@ -80,7 +80,8 @@ endmodule
 
 **TRUTH TABLE**
 
-![truth](https://github.com/user-attachments/assets/103ca202-dc64-4257-b4b4-3edbe9105c7f)
+<img width="1120" height="649" alt="upper" src="https://github.com/user-attachments/assets/a2c904af-7a78-456a-99c1-7266686bb53a" />
+
 
 **RESULTS**
 The synchronous up counter was successfully designed and implemented in Quartus 13.0, and the counting operation was correctly verified with all flip-flops toggling simultaneously on each clock pulse.
