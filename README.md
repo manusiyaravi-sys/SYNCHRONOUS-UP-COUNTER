@@ -79,6 +79,7 @@ endmodule
 <img width="2553" height="1303" alt="ex11(2)" src="https://github.com/user-attachments/assets/7fad55a9-8f05-4aeb-bd65-f39a1f77bf62" />
 
 **TRUTH TABLE**
+
 ![truth](https://github.com/user-attachments/assets/103ca202-dc64-4257-b4b4-3edbe9105c7f)
 
 **RESULTS**
