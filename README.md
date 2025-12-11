@@ -80,7 +80,7 @@ endmodule
 
 **TRUTH TABLE**
 
-<img width="1120" height="649" alt="upper" src="https://github.com/user-attachments/assets/a2c904af-7a78-456a-99c1-7266686bb53a" />
+![truth](https://github.com/user-attachments/assets/24067ede-dc00-48be-bc96-e3133c833331)
 
 
 **RESULTS**
