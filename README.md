@@ -9,21 +9,29 @@ To implement 4 bit synchronous up counter and validate functionality.
 Quartus prime
 
 **THEORY**
-~~~
-A synchronous up counter is a sequential circuit that counts upward (0,1,2,3…) on every clock pulse.
+##
+An Up Counter is a sequential digital circuit that counts numbers in increasing order on every clock pulse.
 
-In this counter, all flip-flops receive the clock signal simultaneously, so they change state at the same time.
+It uses flip-flops to store binary data.
+On each positive clock edge, the count increases by 1 (000 → 001 → 010 → 011 …).
 
-The output of one flip-flop acts as a control signal for the next flip-flop in the counting sequence.
+The counter works in a synchronous manner, meaning all flip-flops are triggered by the same clock.
 
-The first flip-flop toggles with every clock pulse, while the higher flip-flops toggle only when all lower bits are HIGH.
+Up counters are mainly used in timers, digital clocks, and event counters.
+##
+##
+A Down Counter is a sequential digital circuit that counts numbers in decreasing order on every clock pulse.
 
-Because all flip-flops are clocked together, the counter operates faster and avoids propagation delay problems seen in asynchronous counters.
+It also uses flip-flops connected together.
+On each clock pulse, the count decreases by 1 (111 → 110 → 101 → 100 …).
 
-The number of flip-flops determines the maximum count range (n flip-flops → 2ⁿ states).
+Like the up counter, it operates as a synchronous circuit when a common clock is used.
 
-Synchronous up counters are used in digital clocks, timers, frequency dividers, and many counting applications.
-~~~
+Down counters are used in countdown timers and control applications.
+##
+
+
+
 **4 bit synchronous UP Counter**
 
 If we enable each J-K flip-flop to toggle based on whether or not all preceding flip-flop outputs (Q) are “high,” we can obtain the same counting sequence as the asynchronous circuit without the ripple effect, since each flip-flop in this circuit will be clocked at exactly the same time:
@@ -41,21 +49,40 @@ The next flip-flop need only “recognize” that the first flip-flop’s Q outp
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
 **Procedure**
-~~~
-1.Open New Project Wizard and create a new Quartus project with project name and working directory.
+##
+PROCEDURE – UP COUNTER (Quartus II 13.0)
 
-2.Create a new Verilog/VHDL file and write the synchronous up-counter code (n-bit counter).
+Open Quartus II 13.0 software.
 
-3.Save the file and set the module/entity name (e.g., up_counter) as the top-level design.
+Create a New Project Wizard and give project name as Up_Counter.
 
-4.Add any required clock/reset constraints and compile the project using Start Compilation.
+Select Verilog HDL as the design entry method.
 
-5.Use Pin Planner to assign FPGA pins to clk, reset, and output bits if you will test on hardware.
+Write Verilog code for synchronous up counter using flip-flops.
 
-6.Run RTL or functional simulation (ModelSim/Quartus Simulator) to verify counting sequence and timing.
+Save the file and compile the project.
 
-7.If hardware testing needed, open Programmer, generate SOF file and program the FPGA to observe the counter.
-~~~
+Open Simulation Tool (ModelSim) and apply clock input.
+
+Observe the output counting in ascending order.
+
+##
+##
+Open Quartus II 13.0.
+
+Create a new project named Down_Counter.
+
+Choose Verilog HDL as design method.
+
+Write Verilog code for synchronous down counter.
+
+Save and compile the design.
+
+Simulate using ModelSim with clock input.
+
+Observe the output counting in descending order.
+##
+
 **PROGRAM**
 ~~~
 UP COUNTER
@@ -71,12 +98,29 @@ begin
 end
 endmodule
 ~~~
-
+~~~
+DOWN COUNTER
+module ex12(out,clk,rst);
+input clk,rst;
+output reg [3:0]out;
+always @ (posedge clk)
+begin
+   if(rst)
+     out<=0;
+   else 
+     out <= out-1;
+end
+endmodule
+~~~
 **RTL LOGIC UP COUNTER**
 <img width="2560" height="1347" alt="ex11(1)" src="https://github.com/user-attachments/assets/ab178681-884e-4557-bc2e-b2abcc79379a" />
+<img width="2560" height="1333" alt="ex12(1)" src="https://github.com/user-attachments/assets/1b98b468-7354-480a-b62b-4a8c18528fb9" />
+
 
 **TIMING DIAGRAM FOR IP COUNTER**
 <img width="2553" height="1303" alt="ex11(2)" src="https://github.com/user-attachments/assets/7fad55a9-8f05-4aeb-bd65-f39a1f77bf62" />
+<img width="2550" height="1343" alt="ex12(2)" src="https://github.com/user-attachments/assets/2ca315bc-cd0f-4b24-a5ab-2e793e465edb" />
+
 
 **TRUTH TABLE**
 
